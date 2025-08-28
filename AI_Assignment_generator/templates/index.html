@@ -12,9 +12,9 @@
 
     <input type="text" id="topicInput" placeholder="Enter a topic">
 
-    <button onclick="generateAssignment()">Generate Assignment</button>
+    <button onclick="generateAssignment()">Generate</button>
 
-    <pre id="assignmentOutput"></pre>
+    <div id="output"></div>
 
     <script>
       async function generateAssignment() {
@@ -29,11 +29,8 @@
         });
 
         const data = await response.json();
-        if (data.assignment) {
-        document.getElementById("assignmentOutput").innerText = data.assignment;
-    } else if (data.error) {
-        alert(data.error);
-    }  // ✅ use correct key
+        console.log(data);
+        document.getElementById("output").innerText = data.assignment;  // ✅ use correct key
       }
     </script>
 </body>

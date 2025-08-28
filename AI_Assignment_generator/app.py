@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 from openai import OpenAI
 import os
@@ -52,7 +52,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 @app.route("/")  # Home route
 def home():
-    return "Hello! Flask is running 🚀 + OPENAI is running"
+    return render_template("index.html")
 
 @app.route("/generate", methods=["POST"])
 def generate():
